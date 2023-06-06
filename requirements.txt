@@ -1,0 +1,7 @@
+Gymnasium==0.26.3
+numpy==1.23.5
+pandas==2.0.1
+prettytable==3.7.0
+psutil==5.9.4
+ray==2.4.0
+yfinance==0.1.87
