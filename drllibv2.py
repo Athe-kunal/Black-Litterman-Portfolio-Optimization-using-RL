@@ -7,21 +7,19 @@ assert (
 ), "Please install ray 2.4.0 by doing 'pip install ray[rllib] ray[tune] lz4' , lz4 is for population based tuning"
 from pprint import pprint
 
+import psutil
 from ray import tune
-from ray.tune.search import ConcurrencyLimiter
+from ray.air import FailureConfig, RunConfig, ScalingConfig
+from ray.air.config import CheckpointConfig
 from ray.rllib.algorithms import Algorithm
 from ray.tune import register_env
-
-from ray.air import RunConfig, FailureConfig, ScalingConfig
-from ray.tune.tune_config import TuneConfig
-from ray.air.config import CheckpointConfig
 from ray.tune.callback import Callback
-
-import psutil
+from ray.tune.search import ConcurrencyLimiter
+from ray.tune.tune_config import TuneConfig
 
 psutil_memory_in_bytes = psutil.virtual_memory().total
 ray._private.utils.get_system_memory = lambda: psutil_memory_in_bytes
-from typing import Dict, Optional, Any, List, Union
+from typing import Any, Dict, List, Optional, Union
 
 
 class DRLlibv2:
