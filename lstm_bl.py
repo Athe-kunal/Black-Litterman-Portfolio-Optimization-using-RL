@@ -90,10 +90,11 @@ search_alg = OptunaSearch(metric=metric, mode=mode)
 scheduler_ = ASHAScheduler(
     metric=metric,
     mode=mode,
-    max_t=5,
-    grace_period=1,
+    max_t=config_params.training_iterations,
+    grace_period=config_params.training_iterations//10,
     reduction_factor=2,
 )
+
 from ray.air.integrations.wandb import WandbLoggerCallback
 
 import config_params
