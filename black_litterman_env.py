@@ -11,6 +11,8 @@ from pypfopt import (
     risk_models,
 )
 
+import warnings
+warnings.simplefilter("ignore", UserWarning)
 
 class BlackLittermanEnv(gym.Env):
     def __init__(
