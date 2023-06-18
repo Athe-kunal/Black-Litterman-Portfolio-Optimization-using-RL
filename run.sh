@@ -8,8 +8,8 @@ python3 transformer_bl.py
 wait
 
 echo >> Started without confidence
-python3 mlp_bl.py -if True
+python3 mlp_bl.py -if False
 wait
-python3 lstm_bl.py -if True
+python3 lstm_bl.py -if False
 wait
-python3 transformer_bl.py -if True
+python3 transformer_bl.py -if False
