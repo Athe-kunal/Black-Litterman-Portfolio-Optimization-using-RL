@@ -1,0 +1,19 @@
+{
+  "entropy_coeff": 2.927897515933752e-08,
+  "env": "StockTrading_train",
+  "framework": "torch",
+  "lambda": 0.3,
+  "log_level": "DEBUG",
+  "lr": 7.139297742110942e-05,
+  "model": {
+    "fcnet_hiddens": [
+      256,
+      256
+    ]
+  },
+  "num_envs_per_worker": 1000,
+  "num_gpus": 1,
+  "num_workers": 1,
+  "rollout_fragment_length": "auto",
+  "sgd_minibatch_size": 256
+}

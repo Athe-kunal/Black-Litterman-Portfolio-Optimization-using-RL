@@ -85,6 +85,7 @@ def sample_ppo_params():
             "attention_use_n_prev_actions": 0,
             "attention_use_n_prev_rewards": 0,
         },
+        "num_envs_per_worker":config_params.num_envs_per_worker
     }
 
 

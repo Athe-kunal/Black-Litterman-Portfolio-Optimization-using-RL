@@ -109,7 +109,7 @@ class BlackLittermanEnv(gym.Env):
         self.portfolio_return_memory = [0]
 
         self.terminal = False
-        self.weights_memory = [[0] * self.stock_dim]
+        self.weights_memory = [[self.stock1_wt,self.stock2_wt]]
         self.transaction_cost_memory = []
 
         return self.state, {}

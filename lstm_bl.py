@@ -78,6 +78,7 @@ def sample_ppo_params():
             "lstm_cell_size": tune.choice([128, 256, 512])
             # 'lstm_cell_size':256
         },
+        "num_envs_per_worker":config_params.num_envs_per_worker
     }
 
 

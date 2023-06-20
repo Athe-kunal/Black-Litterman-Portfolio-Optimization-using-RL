@@ -1,0 +1,35 @@
+2023-06-20 02:54:49,867 INFO    MainThread:19167 [wandb_setup.py:_flush():76] Current SDK version is 0.15.4
+2023-06-20 02:54:49,867 INFO    MainThread:19167 [wandb_setup.py:_flush():76] Configure stats pid to 19167
+2023-06-20 02:54:49,867 INFO    MainThread:19167 [wandb_setup.py:_flush():76] Loading settings from /home/.config/wandb/settings
+2023-06-20 02:54:49,867 INFO    MainThread:19167 [wandb_setup.py:_flush():76] Loading settings from /home/BL-Project/FINRL_TEST_MLP/FINRL_TEST_MLP/PPO_StockTrading_train_4df2af7b_1_entropy_coeff=0.0000,env=StockTrading_train,framework=torch,lambda=0.7000,log_level=DEBUG,lr=0.0_2023-06-20_02-54-44/wandb/settings
+2023-06-20 02:54:49,867 INFO    MainThread:19167 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'api_key': '***REDACTED***', 'start_method': 'thread'}
+2023-06-20 02:54:49,867 INFO    MainThread:19167 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-06-20 02:54:49,867 WARNING MainThread:19167 [wandb_setup.py:_flush():76] Could not save program above cwd: /opt/conda/lib/python3.10/site-packages/ray/_private/workers/default_worker.py
+2023-06-20 02:54:49,867 INFO    MainThread:19167 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': None, 'program': '/opt/conda/lib/python3.10/site-packages/ray/_private/workers/default_worker.py'}
+2023-06-20 02:54:49,867 INFO    MainThread:19167 [wandb_init.py:_log_setup():507] Logging user logs to /home/BL-Project/FINRL_TEST_MLP/FINRL_TEST_MLP/PPO_StockTrading_train_4df2af7b_1_entropy_coeff=0.0000,env=StockTrading_train,framework=torch,lambda=0.7000,log_level=DEBUG,lr=0.0_2023-06-20_02-54-44/wandb/run-20230620_025449-4df2af7b/logs/debug.log
+2023-06-20 02:54:49,868 INFO    MainThread:19167 [wandb_init.py:_log_setup():508] Logging internal logs to /home/BL-Project/FINRL_TEST_MLP/FINRL_TEST_MLP/PPO_StockTrading_train_4df2af7b_1_entropy_coeff=0.0000,env=StockTrading_train,framework=torch,lambda=0.7000,log_level=DEBUG,lr=0.0_2023-06-20_02-54-44/wandb/run-20230620_025449-4df2af7b/logs/debug-internal.log
+2023-06-20 02:54:49,868 INFO    MainThread:19167 [wandb_init.py:init():547] calling init triggers
+2023-06-20 02:54:49,868 INFO    MainThread:19167 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {'entropy_coeff': 4.171840851317331e-05, 'lr': 5.981498301633279e-05, 'sgd_minibatch_size': 32, 'lambda': 0.7, 'framework': 'torch', 'model': {'fcnet_hiddens': [256, 256]}, 'num_envs_per_worker': 10000, 'rollout_fragment_length': 'auto', 'log_level': 'DEBUG', 'num_gpus': 1, 'num_workers': 1, 'env': 'StockTrading_train'}
+2023-06-20 02:54:49,868 INFO    MainThread:19167 [wandb_init.py:init():596] starting backend
+2023-06-20 02:54:49,868 INFO    MainThread:19167 [wandb_init.py:init():600] setting up manager
+2023-06-20 02:54:49,872 INFO    MainThread:19167 [wandb_init.py:init():606] backend started and connected
+2023-06-20 02:54:49,875 INFO    MainThread:19167 [wandb_init.py:init():703] updated telemetry
+2023-06-20 02:54:49,883 INFO    MainThread:19167 [wandb_init.py:init():736] communicating run to backend with 60.0 second timeout
+2023-06-20 02:54:50,525 INFO    MainThread:19167 [wandb_run.py:_on_init():2176] communicating current version
+2023-06-20 02:54:50,613 INFO    MainThread:19167 [wandb_run.py:_on_init():2185] got version response 
+2023-06-20 02:54:50,614 INFO    MainThread:19167 [wandb_init.py:init():787] starting run threads in backend
+2023-06-20 02:54:59,159 INFO    MainThread:19167 [wandb_run.py:_console_start():2155] atexit reg
+2023-06-20 02:54:59,159 INFO    MainThread:19167 [wandb_run.py:_redirect():2010] redirect: SettingsConsole.WRAP_RAW
+2023-06-20 02:54:59,159 INFO    MainThread:19167 [wandb_run.py:_redirect():2075] Wrapping output streams.
+2023-06-20 02:54:59,160 INFO    MainThread:19167 [wandb_run.py:_redirect():2100] Redirects installed.
+2023-06-20 02:54:59,160 INFO    MainThread:19167 [wandb_init.py:init():828] run started, returning control to user process
+2023-06-20 02:54:59,161 INFO    MainThread:19167 [wandb_config.py:__setitem__():152] config set trial_log_path = /home/BL-Project/FINRL_TEST_MLP/FINRL_TEST_MLP/PPO_StockTrading_train_4df2af7b_1_entropy_coeff=0.0000,env=StockTrading_train,framework=torch,lambda=0.7000,log_level=DEBUG,lr=0.0_2023-06-20_02-54-44 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7f1f1ca3afe0>>
+2023-06-20 02:54:59,161 INFO    MainThread:19167 [wandb_run.py:_config_callback():1283] config_cb trial_log_path /home/BL-Project/FINRL_TEST_MLP/FINRL_TEST_MLP/PPO_StockTrading_train_4df2af7b_1_entropy_coeff=0.0000,env=StockTrading_train,framework=torch,lambda=0.7000,log_level=DEBUG,lr=0.0_2023-06-20_02-54-44 None
+2023-06-20 02:57:46,056 INFO    MainThread:19167 [wandb_run.py:_finish():1890] finishing run rf_project/FINRL_RUN/4df2af7b
+2023-06-20 02:57:46,056 INFO    MainThread:19167 [wandb_run.py:_atexit_cleanup():2124] got exitcode: 0
+2023-06-20 02:57:46,056 INFO    MainThread:19167 [wandb_run.py:_restore():2107] restore
+2023-06-20 02:57:46,057 INFO    MainThread:19167 [wandb_run.py:_restore():2113] restore done
+2023-06-20 02:57:50,437 INFO    MainThread:19167 [wandb_run.py:_footer_history_summary_info():3467] rendering history
+2023-06-20 02:57:50,437 INFO    MainThread:19167 [wandb_run.py:_footer_history_summary_info():3499] rendering summary
+2023-06-20 02:57:50,444 INFO    MainThread:19167 [wandb_run.py:_footer_sync_info():3426] logging synced files

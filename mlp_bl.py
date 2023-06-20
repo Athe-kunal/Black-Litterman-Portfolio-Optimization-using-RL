@@ -19,7 +19,8 @@ data.sort_values(["Date", "ticker"], inplace=True)
 
 test_data = data[data.Date >= "2022"]
 train_data = data[data.Date < "2022"]
-
+import warnings
+warnings.simplefilter("ignore", RuntimeWarning)
 import argparse
 
 import pandas as pd
@@ -71,6 +72,8 @@ def sample_ppo_params():
         #   "lambda":0.9,
         "framework": "torch",
         "model": {"fcnet_hiddens": [256, 256]},
+        "num_envs_per_worker":config_params.num_envs_per_worker,
+        "rollout_fragment_length":"auto"
     }
 
 

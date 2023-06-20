@@ -1,0 +1,62 @@
+wandb_version: 1
+
+entropy_coeff:
+  desc: null
+  value: 1.1923899521709297e-05
+lr:
+  desc: null
+  value: 7.344883820785608e-05
+sgd_minibatch_size:
+  desc: null
+  value: 256
+lambda:
+  desc: null
+  value: 0.1
+framework:
+  desc: null
+  value: torch
+model:
+  desc: null
+  value:
+    fcnet_hiddens:
+    - 256
+    - 256
+num_envs_per_worker:
+  desc: null
+  value: 10000
+rollout_fragment_length:
+  desc: null
+  value: auto
+log_level:
+  desc: null
+  value: DEBUG
+num_gpus:
+  desc: null
+  value: 1
+num_workers:
+  desc: null
+  value: 1
+env:
+  desc: null
+  value: StockTrading_train
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.11
+    cli_version: 0.15.4
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1687229872.483066
+    t:
+      1:
+      - 30
+      - 55
+      3:
+      - 13
+      - 14
+      - 16
+      - 23
+      4: 3.10.11
+      5: 0.15.4
+      8:
+      - 8
