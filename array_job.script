@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#SBATCH --job-name=interval_disc
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=astmohap@iu.edu
+#SBATCH --partition=general
+#SBATCH --account=general
+##SBATCH --gpus 1
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem=16G
+#SBATCH --time=2-00:00:00
+#SBATCH --array=1-15
+
+module load python
+source neurogym_env/bin/activate
+
+#conda init
+#conda activate base
+
+# srun python3 main.py $(awk "NR==$SLURM_ARRAY_TASK_ID" array_job_config.txt)
+srun python3 main.py $(awk "NR==$SLURM_ARRAY_TASK_ID" array_job_config.txt)
