@@ -1,5 +1,5 @@
---if_confidence True
---if_confidence True
---if_confidence False
---if_confidence False
---if_confidence False
+--model "lstm_bl" --if_confidence True
+--model "transformer_bl" --if_confidence True
+--model "mlp_bl" --if_confidence False
+--model "lstm_bl" --if_confidence False
+--model "transformer_bl" --if_confidence False
