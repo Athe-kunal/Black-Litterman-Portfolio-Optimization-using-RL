@@ -71,19 +71,19 @@ def run_lstm_bl(if_confidence):
 
     def sample_ppo_params():
         return {
-            "entropy_coeff": tune.loguniform(0.00000001, 1e-4),
-            "lr": tune.loguniform(5e-5, 0.0001),
-            "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
-            "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
-            #  "entropy_coeff": 0.0000001,
-            #   "lr": 5e-5,
-            #   "sgd_minibatch_size": 64,
-            #   "lambda":0.9,
+            # "entropy_coeff": tune.loguniform(0.00000001, 1e-4),
+            # "lr": tune.loguniform(5e-5, 0.0001),
+            # "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
+            # "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
+             "entropy_coeff": 0.0000001,
+              "lr": 5e-5,
+              "sgd_minibatch_size": 64,
+              "lambda":0.9,
             "framework": "torch",
             "model": {
                 "use_lstm": True,
-                "lstm_cell_size": tune.choice([128, 256, 512])
-                # 'lstm_cell_size':256
+                # "lstm_cell_size": tune.choice([128, 256, 512])
+                'lstm_cell_size':256
             },
             "num_envs_per_worker":config_params.num_envs_per_worker
         }

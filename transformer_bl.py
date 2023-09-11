@@ -67,18 +67,19 @@ def run_transformer_bl(if_confidence):
 
     def sample_ppo_params():
         return {
-            "entropy_coeff": tune.loguniform(0.00000001, 1e-4),
-            "lr": tune.loguniform(5e-5, 0.0001),
-            "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
-            "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
-            #  "entropy_coeff": 0.0000001,
-            #   "lr": 5e-5,
-            #   "sgd_minibatch_size": 64,
-            #   "lambda":0.9,
+            # "entropy_coeff": tune.loguniform(0.00000001, 1e-4),
+            # "lr": tune.loguniform(5e-5, 0.0001),
+            # "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
+            # "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
+             "entropy_coeff": 0.0000001,
+              "lr": 5e-5,
+              "sgd_minibatch_size": 64,
+              "lambda":0.9,
             "framework": "torch",
             "model": {
                 "use_attention": True,
-                "attention_num_transformer_units": tune.choice([1, 2, 3]),
+                # "attention_num_transformer_units": tune.choice([1, 2, 3]),
+                "attention_num_transformer_units":1,
                 "attention_dim": 64,
                 "attention_num_heads": 1,
                 "attention_head_dim": 32,
