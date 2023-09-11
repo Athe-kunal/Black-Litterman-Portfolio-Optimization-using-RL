@@ -13,7 +13,7 @@
 #SBATCH --time=2-00:00:00
 #SBATCH --array=1-15
 
-module load python
+module load python/gpu/3.10.0
 source bl_project/bin/activate
 
 #conda init
