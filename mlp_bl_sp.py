@@ -1,24 +1,6 @@
 import pandas as pd
 import yfinance as yf
-
-start_date = "2003-10-01"
-end_date = "2023-05-01"
-sp500 = yf.download(tickers=["^GSPC"], start=start_date, end=end_date, interval="1mo")
-
-bonds = yf.download(tickers=["AGG"], start=start_date, end=end_date, interval="1mo")
-
-bonds.reset_index(inplace=True)
-sp500.reset_index(inplace=True)
-
-sp500["ticker"] = "^GSPC"
-bonds["ticker"] = "AGG"
-
-data = pd.concat([bonds, sp500], axis=0)
-
-data.sort_values(["Date", "ticker"], inplace=True)
-
-test_data = data[data.Date >= "2022"]
-train_data = data[data.Date < "2022"]
+import config_params
 import warnings
 warnings.simplefilter("ignore", RuntimeWarning)
 import argparse
@@ -33,6 +15,24 @@ from black_litterman_env import BlackLittermanEnv
 from ray.air.integrations.wandb import WandbLoggerCallback
 from drllibv2 import DRLlibv2
 import config_params
+
+sp500 = yf.download(tickers=["^GSPC"], start=config_params.start_date, end=config_params.end_date, interval="1mo")
+
+bonds = yf.download(tickers=["AGG"], start=config_params.start_date, end=config_params.end_date, interval="1mo")
+
+bonds.reset_index(inplace=True)
+sp500.reset_index(inplace=True)
+
+sp500["ticker"] = "^GSPC"
+bonds["ticker"] = "AGG"
+
+data = pd.concat([bonds, sp500], axis=0)
+
+data.sort_values(["Date", "ticker"], inplace=True)
+
+test_data = data[data.Date >= "2022"]
+train_data = data[data.Date < "2022"]
+
 # parser = argparse.ArgumentParser(description="If confidence output")
 # parser.add_argument(
 #     "-if", "--if_confidence", type=bool, help="Whether to output confidence",default=True
@@ -49,7 +49,7 @@ import config_params
 
 from ray.tune.registry import register_env
 
-def run_mlp_bl(if_confidence):
+def run_mlp_bl_sp(if_confidence,test_data=test_data):
     if if_confidence=="true":
         if_confidence = True
     elif if_confidence=="false":
@@ -69,14 +69,14 @@ def run_mlp_bl(if_confidence):
 
     def sample_ppo_params():
         return {
-            # "entropy_coeff": tune.loguniform(0.00000001, 1e-4),
-            # "lr": tune.loguniform(5e-5, 0.0001),
-            # "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
-            # "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
-             "entropy_coeff": 0.0000001,
-              "lr": 5e-5,
-              "sgd_minibatch_size": 64,
-              "lambda":0.9,
+            "entropy_coeff": tune.loguniform(0.00000001, 1e-4),
+            "lr": tune.loguniform(5e-5, 0.0001),
+            "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
+            "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
+            #  "entropy_coeff": 0.0000001,
+            #   "lr": 5e-5,
+            #   "sgd_minibatch_size": 64,
+            #   "lambda":0.9,
             "framework": "torch",
             "model": {"fcnet_hiddens": [256, 256]},
             "num_envs_per_worker":config_params.num_envs_per_worker,
@@ -94,7 +94,8 @@ def run_mlp_bl(if_confidence):
         metric=metric,
         mode=mode,
         max_t=config_params.training_iterations,
-        grace_period=config_params.training_iterations//10,
+        # grace_period=config_params.training_iterations//10,
+        grace_period=1,
         reduction_factor=2,
     )
    
@@ -130,7 +131,7 @@ def run_mlp_bl(if_confidence):
 
 
     checkpoint = mlp_res.get_best_result().checkpoint
-    results_df.to_csv(f"MLP_{if_confidence}.csv")
+    results_df.to_csv(f"MLP_{if_confidence}_SP.csv")
     ds = []
     for i in test_data.groupby("ticker"):
         i[1].reset_index(drop=True, inplace=True)
@@ -186,7 +187,7 @@ def run_mlp_bl(if_confidence):
 
         # Log the table to visualize with a run...
 
-        run.log({f"MLP_Log_data_{runs}_{if_confidence}": log_table})
+        run.log({f"MLP_Log_data_{runs}_{if_confidence}_SP500": log_table})
 
         # and Log as an Artifact to increase the available row limit!
 

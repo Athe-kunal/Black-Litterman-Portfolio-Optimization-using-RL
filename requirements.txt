@@ -9,6 +9,6 @@ PyPortfolioOpt==1.5.5
 wandb
 optuna
 lz4
-ray[tune]
+ray[tune]==2.4.0
 dm_tree
 tensorflow_probability

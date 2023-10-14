@@ -18,7 +18,7 @@ from . import CLA, EfficientFrontier, exceptions, risk_models
 try:
     import matplotlib.pyplot as plt
 
-    plt.style.use("seaborn-deep")
+    plt.style.use("ggplot")
 except (ModuleNotFoundError, ImportError):  # pragma: no cover
     raise ImportError("Please install matplotlib via pip or poetry")
 

@@ -19,6 +19,8 @@ class BlackLittermanEnv(gym.Env):
         self,
         data_df: pd.DataFrame,
         information_cols: list = ["Open", "High", "Low", "Adj Close", "Volume"],
+        other_df_path:str = 'Other.csv',
+        other_cols: list = ['10_year_rate','3_months_rate'],
         if_confidence: bool = True,
         stock1_weight: float = 0.4,
         stock2_weight: float = 0.6,
@@ -34,6 +36,7 @@ class BlackLittermanEnv(gym.Env):
         self.state_space_shape = self.stock_dim
         self.if_confidence = if_confidence
         self.information_cols = information_cols
+        self.other_cols = other_cols
         self.transaction_cost_pct = transaction_cost_pct
         self.base_return = base_return
         self.base_return_penalty = -base_return_penalty
@@ -55,7 +58,7 @@ class BlackLittermanEnv(gym.Env):
         self.observation_space = spaces.Box(
             low=-np.inf,
             high=np.inf,
-            shape=(len(self.information_cols), self.state_space_shape),
+            shape=(len(self.information_cols)+1, self.state_space_shape),
         )
 
         self.terminal = False
@@ -71,6 +74,7 @@ class BlackLittermanEnv(gym.Env):
         self.transaction_cost_memory = []
 
         self.tickers = self.data_df["ticker"].unique().tolist()
+        self.others_df = pd.read_csv(other_df_path)
         self.stock1_tic = self.tickers[0]
         self.stock2_tic = self.tickers[1]
 
@@ -102,8 +106,10 @@ class BlackLittermanEnv(gym.Env):
         self.asset_memory = [self.initial_amount]
         self.month = self.start_month
         self.data = self.data_df.loc[self.month, :]
-        self.state = [self.data[ic].values.tolist() for ic in self.information_cols]
+        self.other_data = self.others_df.loc[self.month, :]
 
+        self.state = [self.data[ic].values.tolist() for ic in self.information_cols]
+        self.state.append([self.other_data[oc] for oc in self.other_cols])
         self.state = np.array(self.state)
         self.portfolio_value = self.initial_amount
         self.portfolio_return_memory = [0]
@@ -114,7 +120,6 @@ class BlackLittermanEnv(gym.Env):
 
         return self.state, {}
 
-    # def black_litterman_weights(self)
     def step(self, actions):
 
         self.terminal = self.month >= len(self.data_df.Date.unique()) - 1
@@ -205,9 +210,9 @@ class BlackLittermanEnv(gym.Env):
                 self.month += 1
 
                 self.data = self.data_df.loc[self.month, :]
-                self.state = np.array(
-                    [self.data[ic].values.tolist() for ic in self.information_cols]
-                )
+                self.other_data = self.others_df.loc[self.month, :]
+                self.state = [self.data[ic].values.tolist() for ic in self.information_cols]
+                self.state.append([self.other_data[oc] for oc in self.other_cols])
                 self.state = np.array(self.state)
 
                 return self.state, self.reward, self.terminal, self.terminal, {}
@@ -219,9 +224,10 @@ class BlackLittermanEnv(gym.Env):
             self.month += 1
 
             self.data = self.data_df.loc[self.month, :]
-            self.state = np.array(
-                [self.data[ic].values.tolist() for ic in self.information_cols]
-            )
+            self.other_data = self.others_df.loc[self.month, :]
+            self.state = [self.data[ic].values.tolist() for ic in self.information_cols]
+
+            self.state.append([self.other_data[oc] for oc in self.other_cols])
             self.state = np.array(self.state)
             portfolio_return = sum(
                 (
