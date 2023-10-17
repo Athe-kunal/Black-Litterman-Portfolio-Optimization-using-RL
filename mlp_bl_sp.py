@@ -94,8 +94,8 @@ def run_mlp_bl_sp(if_confidence,test_data=test_data):
         metric=metric,
         mode=mode,
         max_t=config_params.training_iterations,
-        # grace_period=config_params.training_iterations//10,
-        grace_period=1,
+        grace_period=config_params.training_iterations//10,
+        # grace_period=1,
         reduction_factor=2,
     )
    
@@ -113,8 +113,8 @@ def run_mlp_bl_sp(if_confidence,test_data=test_data):
         framework="torch",
         num_workers=config_params.num_workers,
         log_level="DEBUG",
-        run_name="FINRL_TEST_MLP",
-        storage_path="FINRL_TEST_MLP",
+        run_name="FINRL_TEST_MLP_SP",
+        storage_path="FINRL_TEST_MLP_SP",
         params=sample_ppo_params(),
         num_samples=config_params.num_samples,
         num_gpus=config_params.num_gpus,

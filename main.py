@@ -2,8 +2,10 @@ import subprocess
 import argparse
 from mlp_bl_sp import run_mlp_bl_sp
 from mlp_bl_rusell import run_mlp_bl_rusell
-from lstm_bl import run_lstm_bl
-from transformer_bl import run_transformer_bl
+from lstm_bl_sp import run_lstm_bl_sp
+from lstm_bl_rusell import run_lstm_bl_rusell
+from transformer_bl_sp import run_transformer_bl_sp
+from transformer_bl_rusell import run_transformer_bl_rusell
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -14,7 +16,10 @@ if __name__ == "__main__":
 
     if args.model == "mlp":
         run_mlp_bl_sp(args.if_confidence)
+        run_mlp_bl_rusell(args.if_confidence)
     elif args.model=="lstm":
-        run_lstm_bl(args.if_confidence)
+        run_lstm_bl_sp(args.if_confidence)
+        run_lstm_bl_rusell(args.if_confidence)
     elif args.model=="trans":
-        run_transformer_bl(args.if_confidence)
+        run_transformer_bl_sp(args.if_confidence)
+        run_transformer_bl_rusell(args.if_confidence)
