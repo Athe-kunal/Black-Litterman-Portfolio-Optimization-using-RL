@@ -12,3 +12,5 @@ lz4
 ray[tune]==2.4.0
 dm_tree
 tensorflow_probability
+matplotlib=3.8.0
+scikit-image=0.22.0
