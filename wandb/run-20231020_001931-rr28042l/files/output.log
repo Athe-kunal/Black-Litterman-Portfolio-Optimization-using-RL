@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL/main.py", line 19, in <module>
+    run_mlp_bl_rusell(args.if_confidence)
+  File "/home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL/mlp_bl_rusell.py", line 92, in run_mlp_bl_rusell
+    scheduler_ = ASHAScheduler(
+  File "/home/athekunal/BL-Project/V3/bl-project/lib/python3.10/site-packages/ray/tune/schedulers/async_hyperband.py", line 62, in __init__
+    assert grace_period > 0, "grace_period must be positive!"
+AssertionError: grace_period must be positive!
+Traceback (most recent call last):
+  File "/home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL/main.py", line 19, in <module>
+    run_mlp_bl_rusell(args.if_confidence)
+  File "/home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL/mlp_bl_rusell.py", line 92, in run_mlp_bl_rusell
+    scheduler_ = ASHAScheduler(
+  File "/home/athekunal/BL-Project/V3/bl-project/lib/python3.10/site-packages/ray/tune/schedulers/async_hyperband.py", line 62, in __init__
+    assert grace_period > 0, "grace_period must be positive!"
+AssertionError: grace_period must be positive!

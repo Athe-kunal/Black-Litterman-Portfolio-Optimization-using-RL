@@ -132,11 +132,16 @@ class BlackLittermanEnv(gym.Env):
 
             return self.state, self.reward, self.terminal, self.terminal, {}
         else:
-            self.stock1_ret = actions[0][0]
-            self.stock2_ret = actions[0][1]
-            self.relative_ret = actions[0][2]
+            if not self.if_confidence:
+                self.stock1_ret = actions[0]
+                self.stock2_ret = actions[1]
+                self.relative_ret = actions[2]
+            else:
+                self.stock1_ret = actions[0][0]
+                self.stock2_ret = actions[0][1]
+                self.relative_ret = actions[0][2]
 
-            if self.if_confidence:
+            # if self.if_confidence:
                 self.stock1_conf = actions[1][0]
                 self.stock2_conf = actions[1][1]
                 self.relative_conf = actions[1][2]

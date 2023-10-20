@@ -174,12 +174,17 @@ def run_lstm_bl_rusell(if_confidence,test_data=test_data):
             obs, reward, done, _, _ = test_env_instance.step(action)
 
         log_df = pd.DataFrame(index=test_data.Date.unique()[3:])
-        log_df["Absolute_ret_1"] = [i[0][0] for i in test_env_instance.actions]
-        log_df["Confidence_ret_1"] = [i[1][0] for i in test_env_instance.actions]
-        log_df["Absolute_ret_2"] = [i[0][1] for i in test_env_instance.actions]
-        log_df["Confidence_ret_2"] = [i[1][1] for i in test_env_instance.actions]
-        log_df["Relative_ret"] = [i[0][2] for i in test_env_instance.actions]
-        log_df["Relative_confidence"] = [i[1][2] for i in test_env_instance.actions]
+        if not if_confidence:
+            log_df["Absolute_ret_1"] = [i[0] for i in test_env_instance.actions]
+            log_df["Absolute_ret_2"] = [i[1] for i in test_env_instance.actions]
+            log_df["Relative_ret"] = [i[2] for i in test_env_instance.actions]
+        else:
+            log_df["Absolute_ret_1"] = [i[0][0] for i in test_env_instance.actions]
+            log_df["Confidence_ret_1"] = [i[1][0] for i in test_env_instance.actions]
+            log_df["Absolute_ret_2"] = [i[0][1] for i in test_env_instance.actions]
+            log_df["Confidence_ret_2"] = [i[1][1] for i in test_env_instance.actions]
+            log_df["Relative_ret"] = [i[0][2] for i in test_env_instance.actions]
+            log_df["Relative_confidence"] = [i[1][2] for i in test_env_instance.actions]
         log_df["Weights_1"] = [i[0] for i in test_env_instance.weights_memory]
         log_df["Weights_2"] = [i[1] for i in test_env_instance.weights_memory]
         log_df["Assets"] = test_env_instance.asset_memory
