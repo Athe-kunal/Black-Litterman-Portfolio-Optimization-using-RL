@@ -1,0 +1,28 @@
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_setup.py:_flush():76] Current SDK version is 0.15.12
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_setup.py:_flush():76] Configure stats pid to 4795
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_setup.py:_flush():76] Loading settings from /home/athekunal/.config/wandb/settings
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_setup.py:_flush():76] Loading settings from /home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL/FINRL_TEST_MLP_SP/FINRL_TEST_MLP_SP/PPO_StockTrading_train_94758a06_1_env=StockTrading_train,framework=torch,log_level=DEBUG,num_gpus=1,num_workers=1,entropy_coeff=0._2023-10-22_04-23-22/wandb/settings
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'api_key': '***REDACTED***', 'start_method': 'thread'}
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-10-22 04:23:26,151 WARNING MainThread:4795 [wandb_setup.py:_flush():76] Could not save program above cwd: /home/athekunal/BL-Project/V3/bl-project/lib/python3.10/site-packages/ray/_private/workers/default_worker.py
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': None, 'program_abspath': '/home/athekunal/BL-Project/V3/bl-project/lib/python3.10/site-packages/ray/_private/workers/default_worker.py', 'program': '/home/athekunal/BL-Project/V3/bl-project/lib/python3.10/site-packages/ray/_private/workers/default_worker.py'}
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_init.py:_log_setup():528] Logging user logs to /home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL/FINRL_TEST_MLP_SP/FINRL_TEST_MLP_SP/PPO_StockTrading_train_94758a06_1_env=StockTrading_train,framework=torch,log_level=DEBUG,num_gpus=1,num_workers=1,entropy_coeff=0._2023-10-22_04-23-22/wandb/run-20231022_042326-94758a06/logs/debug.log
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_init.py:_log_setup():529] Logging internal logs to /home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL/FINRL_TEST_MLP_SP/FINRL_TEST_MLP_SP/PPO_StockTrading_train_94758a06_1_env=StockTrading_train,framework=torch,log_level=DEBUG,num_gpus=1,num_workers=1,entropy_coeff=0._2023-10-22_04-23-22/wandb/run-20231022_042326-94758a06/logs/debug-internal.log
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_init.py:init():568] calling init triggers
+2023-10-22 04:23:26,151 INFO    MainThread:4795 [wandb_init.py:init():575] wandb.init called with sweep_config: {}
+config: {'params': {'entropy_coeff': 3.1287824843683018e-06, 'lr': 5.447515828096367e-05, 'sgd_minibatch_size': 128, 'lambda': 1.0, 'framework': 'torch', 'model': {'fcnet_hiddens': [256, 256]}, 'num_envs_per_worker': 100, 'rollout_fragment_length': 'auto'}, 'scaling_config': {'trainer_resources': None, 'num_workers': 1, 'use_gpu': True, 'resources_per_worker': {'CPU': 0.1, 'GPU': 0.1}, 'placement_strategy': 'PACK', '_max_cpu_fraction_per_node': None}, 'framework': 'torch', 'log_level': 'DEBUG', 'num_gpus': 1, 'num_workers': 1, 'env': 'StockTrading_train'}
+2023-10-22 04:23:26,152 INFO    MainThread:4795 [wandb_init.py:init():618] starting backend
+2023-10-22 04:23:26,152 INFO    MainThread:4795 [wandb_init.py:init():622] setting up manager
+2023-10-22 04:23:26,154 INFO    MainThread:4795 [wandb_init.py:init():628] backend started and connected
+2023-10-22 04:23:26,155 INFO    MainThread:4795 [wandb_init.py:init():720] updated telemetry
+2023-10-22 04:23:26,158 INFO    MainThread:4795 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2023-10-22 04:23:26,522 INFO    MainThread:4795 [wandb_run.py:_on_init():2220] communicating current version
+2023-10-22 04:23:26,746 INFO    MainThread:4795 [wandb_run.py:_on_init():2229] got version response 
+2023-10-22 04:23:26,746 INFO    MainThread:4795 [wandb_init.py:init():804] starting run threads in backend
+2023-10-22 04:23:26,881 INFO    MainThread:4795 [wandb_run.py:_console_start():2199] atexit reg
+2023-10-22 04:23:26,881 INFO    MainThread:4795 [wandb_run.py:_redirect():2054] redirect: wrap_raw
+2023-10-22 04:23:26,881 INFO    MainThread:4795 [wandb_run.py:_redirect():2119] Wrapping output streams.
+2023-10-22 04:23:26,881 INFO    MainThread:4795 [wandb_run.py:_redirect():2144] Redirects installed.
+2023-10-22 04:23:26,882 INFO    MainThread:4795 [wandb_init.py:init():845] run started, returning control to user process
+2023-10-22 04:23:26,882 INFO    MainThread:4795 [wandb_config.py:__setitem__():151] config set trial_log_path = /home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL/FINRL_TEST_MLP_SP/FINRL_TEST_MLP_SP/PPO_StockTrading_train_94758a06_1_env=StockTrading_train,framework=torch,log_level=DEBUG,num_gpus=1,num_workers=1,entropy_coeff=0._2023-10-22_04-23-22 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7f431853bbe0>>
+2023-10-22 04:23:26,882 INFO    MainThread:4795 [wandb_run.py:_config_callback():1324] config_cb trial_log_path /home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL/FINRL_TEST_MLP_SP/FINRL_TEST_MLP_SP/PPO_StockTrading_train_94758a06_1_env=StockTrading_train,framework=torch,log_level=DEBUG,num_gpus=1,num_workers=1,entropy_coeff=0._2023-10-22_04-23-22 None

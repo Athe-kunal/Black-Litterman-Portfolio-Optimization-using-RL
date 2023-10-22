@@ -1,0 +1,144 @@
+{
+    "os": "Linux-5.15.90.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2023-10-22T08:23:26.820394",
+    "startedAt": "2023-10-22T08:23:26.150155",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--node-ip-address=172.25.188.62",
+        "--node-manager-port=37263",
+        "--object-store-name=/tmp/ray/session_2023-10-22_04-23-20_056711_4167/sockets/plasma_store",
+        "--raylet-name=/tmp/ray/session_2023-10-22_04-23-20_056711_4167/sockets/raylet",
+        "--redis-address=None",
+        "--temp-dir=/tmp/ray",
+        "--metrics-agent-port=60260",
+        "--logging-rotate-bytes=536870912",
+        "--logging-rotate-backup-count=5",
+        "--gcs-address=172.25.188.62:64015",
+        "--session-name=session_2023-10-22_04-23-20_056711_4167",
+        "--temp-dir=/tmp/ray",
+        "--webui=",
+        "--startup-token=4",
+        "--worker-launch-time-ms=1697963003189",
+        "--runtime-env-hash=-1160570488"
+    ],
+    "state": "running",
+    "program": "/home/athekunal/BL-Project/V3/bl-project/lib/python3.10/site-packages/ray/_private/workers/default_worker.py",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/Athe-kunal/Black-Litterman-Portfolio-Optimization-using-RL.git",
+        "commit": "4d5f75115e791700b05b7c2c09540b354b1fd1c4"
+    },
+    "email": "athekunal@gmail.com",
+    "root": "/home/athekunal/BL-Project/V3/Black-Litterman-Portfolio-Optimization-using-RL",
+    "host": "LAPTOP-QF1FUNPH",
+    "username": "athekunal",
+    "executable": "/home/athekunal/BL-Project/V3/bl-project/bin/python3",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 1896.3879999999992,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1896.388,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 108.01545333862305
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 7.439723968505859
+    }
+}

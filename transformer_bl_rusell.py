@@ -20,7 +20,7 @@ data.sort_values(["Date", "ticker"], inplace=True)
 test_data = data[data.Date >= "2022"]
 train_data = data[data.Date < "2022"]
 
-import argparse
+from ray.air import ScalingConfig
 
 import numpy as np
 import pandas as pd
@@ -67,6 +67,8 @@ def run_transformer_bl_rusell(if_confidence,test_data=test_data):
 
     def sample_ppo_params():
         return {
+            "params":{
+
             "entropy_coeff": tune.loguniform(0.00000001, 1e-4),
             "lr": tune.loguniform(5e-5, 0.0001),
             "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
@@ -78,8 +80,8 @@ def run_transformer_bl_rusell(if_confidence,test_data=test_data):
             "framework": "torch",
             "model": {
                 "use_attention": True,
-                # "attention_num_transformer_units": tune.choice([1, 2, 3]),
-                "attention_num_transformer_units":1,
+                "attention_num_transformer_units": tune.choice([1, 2, 3]),
+                # "attention_num_transformer_units":1,
                 "attention_dim": 64,
                 "attention_num_heads": 1,
                 "attention_head_dim": 32,
@@ -91,6 +93,12 @@ def run_transformer_bl_rusell(if_confidence,test_data=test_data):
                 "attention_use_n_prev_rewards": 0,
             },
             "num_envs_per_worker":config_params.num_envs_per_worker
+            },
+             "scaling_config": ScalingConfig(
+                num_workers=config_params.num_workers,
+                resources_per_worker={"CPU":config_params.worker_cpu,"GPU":config_params.worker_gpu},
+                use_gpu=True
+            )
         }
 
 

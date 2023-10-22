@@ -1,0 +1,33 @@
+{
+  "env": "StockTrading_train",
+  "framework": "torch",
+  "log_level": "DEBUG",
+  "num_gpus": 1,
+  "num_workers": 1,
+  "params": {
+    "entropy_coeff": 3.1287824843683018e-06,
+    "framework": "torch",
+    "lambda": 1.0,
+    "lr": 5.447515828096367e-05,
+    "model": {
+      "fcnet_hiddens": [
+        256,
+        256
+      ]
+    },
+    "num_envs_per_worker": 100,
+    "rollout_fragment_length": "auto",
+    "sgd_minibatch_size": 128
+  },
+  "scaling_config": {
+    "_max_cpu_fraction_per_node": null,
+    "num_workers": 1,
+    "placement_strategy": "PACK",
+    "resources_per_worker": {
+      "CPU": 0.1,
+      "GPU": 0.1
+    },
+    "trainer_resources": null,
+    "use_gpu": true
+  }
+}

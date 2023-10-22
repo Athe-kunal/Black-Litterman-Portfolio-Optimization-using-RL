@@ -20,8 +20,7 @@ data.sort_values(["Date", "ticker"], inplace=True)
 test_data = data[data.Date >= "2022"]
 train_data = data[data.Date < "2022"]
 
-import argparse
-
+from ray.air import ScalingConfig
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -71,6 +70,8 @@ def run_lstm_bl_sp(if_confidence,test_data=test_data):
 
     def sample_ppo_params():
         return {
+            "params":{
+
             "entropy_coeff": tune.loguniform(0.00000001, 1e-4),
             "lr": tune.loguniform(5e-5, 0.0001),
             "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
@@ -86,6 +87,12 @@ def run_lstm_bl_sp(if_confidence,test_data=test_data):
                 # 'lstm_cell_size':256
             },
             "num_envs_per_worker":config_params.num_envs_per_worker
+            },
+             "scaling_config": ScalingConfig(
+                num_workers=config_params.num_workers,
+                resources_per_worker={"CPU":config_params.worker_cpu,"GPU":config_params.worker_gpu},
+                use_gpu=True
+            )
         }
 
 

@@ -1,10 +1,12 @@
-num_workers = 1
+num_workers = 10
 num_samples = 1
 num_gpus = 1
-training_iterations = 1
+training_iterations = 10
 checkpoint_freq = 1
 num_envs_per_worker = 100
 WANDB_PROJECT = "FINRL_RUN"
 WANDB_API_KEY = "70e95a405ea4aec8d0a637460407bf21c69436f4"
 start_date = "2003-10-01"
 end_date = "2023-10-01"
+worker_cpu = 0.1
+worker_gpu = 0.1
