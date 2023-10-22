@@ -1,6 +1,7 @@
 num_workers = 10
 num_samples = 1
 num_gpus = 1
+num_cpus = 2
 training_iterations = 10
 checkpoint_freq = 1
 num_envs_per_worker = 100

@@ -138,6 +138,7 @@ def run_transformer_bl_sp(if_confidence,test_data=test_data):
         params=sample_ppo_params(),
         num_samples=config_params.num_samples,
         num_gpus=config_params.num_gpus,
+        num_cpus = config_params.num_cpus,
         training_iterations=config_params.training_iterations,
         checkpoint_freq=config_params.checkpoint_freq,
         scheduler=scheduler_,
