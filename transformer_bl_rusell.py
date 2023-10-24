@@ -69,7 +69,7 @@ def run_transformer_bl_rusell(if_confidence,test_data=test_data):
         return {
             "params":{
 
-            "entropy_coeff": tune.loguniform(1e-5, 1e-4),
+            "entropy_coeff": tune.choice([1e-5,1e-4]),
             "lr": tune.loguniform(5e-5, 0.0001),
             "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
             "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
