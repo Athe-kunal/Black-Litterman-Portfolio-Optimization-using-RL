@@ -1,23 +1,19 @@
 #!/bin/bash
 
 #SBATCH --job-name=bl_project
+#SBATCH -p gpu
+#SBATCH -A c00554
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=astmohap@iu.edu
-#SBATCH --partition=general
-#SBATCH --account=general
-##SBATCH --gpus 1
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=16G
-#SBATCH --time=2-00:00:00
-#SBATCH --array=1-15
+#SBATCH --cpus-per-task=1
+#SBATCH --gpus-per-node=1
+#SBATCH --time=1-23:59:00
 
-module load python/gpu/3.10.0
+module load python/gpu
 source bl_project/bin/activate
 
-#conda init
-#conda activate base
-
 # srun python3 main.py $(awk "NR==$SLURM_ARRAY_TASK_ID" array_job_config.txt)
-srun python3 main.py $(awk "NR==$SLURM_ARRAY_TASK_ID" array_job_config.txt)
+srun python3 main.py --if_confidence true --stock sp --model mlp
+~                                                                    
