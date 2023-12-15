@@ -69,14 +69,14 @@ def run_mlp_bl_rusell(if_confidence,test_data=test_data):
         return {
             "params":{
 
-            "entropy_coeff": tune.choice([1e-5,1e-4]),
-            "lr": tune.loguniform(5e-5, 0.0001),
-            "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
-            "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
-            #  "entropy_coeff": 0.0000001,
-            #   "lr": 5e-5,
-            #   "sgd_minibatch_size": 64,
-            #   "lambda":0.9,
+            # "entropy_coeff": tune.choice([1e-5,1e-4]),
+            # "lr": tune.loguniform(5e-5, 0.0001),
+            # "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
+            # "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
+             "entropy_coeff": 0.0000001,
+              "lr": 5e-5,
+              "sgd_minibatch_size": 64,
+              "lambda":0.9,
             "framework": "torch",
             "model": {"fcnet_hiddens": [256, 256]},
             "num_envs_per_worker":config_params.num_envs_per_worker,
@@ -127,8 +127,8 @@ def run_mlp_bl_rusell(if_confidence,test_data=test_data):
         num_cpus = config_params.num_cpus,
         training_iterations=config_params.training_iterations,
         checkpoint_freq=config_params.checkpoint_freq,
-        scheduler=scheduler_,
-        search_alg=search_alg,
+        # scheduler=scheduler_,
+        # search_alg=search_alg,
         callbacks=[wandb_callback],
     )
 

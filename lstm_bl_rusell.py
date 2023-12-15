@@ -72,14 +72,14 @@ def run_lstm_bl_rusell(if_confidence,test_data=test_data):
         return {
             "params":{
 
-            "entropy_coeff": tune.choice([1e-5,1e-4]),
-            "lr": tune.loguniform(5e-5, 0.0001),
-            "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
-            "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
-            #  "entropy_coeff": 0.0000001,
-            #   "lr": 5e-5,
-            #   "sgd_minibatch_size": 64,
-            #   "lambda":0.9,
+            # "entropy_coeff": tune.choice([1e-5,1e-4]),
+            # "lr": tune.loguniform(5e-5, 0.0001),
+            # "sgd_minibatch_size": tune.choice([32, 64, 128, 256]),
+            # "lambda": tune.choice([0.1, 0.3, 0.5, 0.7, 0.9, 1.0]),
+             "entropy_coeff": 0.0000001,
+              "lr": 5e-5,
+              "sgd_minibatch_size": 64,
+              "lambda":0.9,
             "framework": "torch",
             "model": {
                 "use_lstm": True,
